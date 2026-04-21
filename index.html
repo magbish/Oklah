@@ -8,7 +8,7 @@
 <title>Oklah Hub — Professional Email, Microsoft 365 &amp; Business Websites</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;Tangerine:wght@400;700&display=swap" rel="stylesheet" />
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
@@ -266,9 +266,9 @@ const Chk = ({ c = 'var(--navy)', sz = 10 }) => (
 
 /* ── LOGO ── */
 const Logo = ({ h = 32, inv = false }) => (
-  <img src="uploads/logo.svg" alt="Oklah Hub"
+  <img src="asset/logo.png" alt="Oklah Hub"
     style={{ height: h, objectFit: 'contain', display: 'block', filter: inv ? 'brightness(0) invert(1)' : 'none' }}
-    onError={e => { e.currentTarget.src = 'uploads/logo_file-1776618871769.jpg' }}
+    onError={e => { e.currentTarget.src = 'asset/logo.png' }}
   />
 );
 
@@ -365,13 +365,13 @@ function Nav({ mob, dark, setDark }) {
             {links.map(l => <a key={l} href={`#${l.toLowerCase()}`} className="mob-a" onClick={() => setMenu(false)}>{l}</a>)}
           </div>
           <div style={{ marginTop: 28, display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <a href={waHref('Hi Oklah Hub! I want to get started.')} target="_blank" rel="noopener" onClick={() => setMenu(false)}
-              className="btn btn-g" style={{ width: '100%', padding: '16px', fontSize: 16, borderRadius: 14 }}>
-              <WaIco s={18} /> Chat on WhatsApp
-            </a>
             <a href="mailto:info@oklahhub.com" onClick={() => setMenu(false)}
               className="btn btn-o" style={{ width: '100%', padding: '14px', fontSize: 15, borderRadius: 14 }}>
               ✉️ info@oklahhub.com
+            </a>
+            <a href={waHref('Hi Oklah Hub! I want to get started.')} target="_blank" rel="noopener" onClick={() => setMenu(false)}
+              className="btn btn-g" style={{ width: '100%', padding: '16px', fontSize: 16, borderRadius: 14 }}>
+              <WaIco s={18} /> Chat on WhatsApp
             </a>
           </div>
         </div>
@@ -440,7 +440,7 @@ function HeroCards() {
 /* ── HERO ── */
 function Hero({ mob }) {
   return (
-    <section className="hero-bg" style={{ minHeight: '100svh', display: 'flex', alignItems: 'center', paddingTop: mob ? 60 : 68, position: 'relative', overflow: 'hidden' }}>
+    <section className="hero-bg" style={{ minHeight: '100svh', display: 'flex', alignItems: 'center', paddingTop: mob ? 60 : 68, position: 'relative', overflow: 'hidden', backgroundImage: 'url(asset/hero-background.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
       <div className="hero-grid" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', top: '8%', left: '-8%', width: 700, height: 700, borderRadius: '50%', background: 'radial-gradient(circle,rgba(14,165,233,.12) 0%,transparent 65%)', filter: 'blur(60px)', pointerEvents: 'none', animation: 'float 12s ease-in-out infinite' }} />
       <div style={{ position: 'absolute', bottom: '2%', right: '-8%', width: 560, height: 560, borderRadius: '50%', background: 'radial-gradient(circle,rgba(249,115,22,.1) 0%,transparent 65%)', filter: 'blur(60px)', pointerEvents: 'none', animation: 'float 15s 3s ease-in-out infinite' }} />
@@ -465,7 +465,7 @@ function Hero({ mob }) {
             <p style={{ color: 'var(--muted)', fontSize: mob ? 16 : 18, lineHeight: 1.72, maxWidth: 520, marginBottom: 8, animation: 'fadeUp .6s .12s ease both', fontWeight: 400 }}>
               A Gmail address, no website, or outdated branding costs you deals every day. We fix that in <strong style={{ color: 'var(--navy)', fontWeight: 700 }}>48 hours</strong>. From <strong style={{ color: 'var(--orange)', fontWeight: 700 }}>$29/year.</strong>
             </p>
-            <p style={{ color: 'var(--faint)', fontSize: 13, fontStyle: 'italic', marginBottom: 32, animation: 'fadeUp .6s .16s ease both' }}>"More than a product — it's your security."</p>
+            <p style={{ color: 'var(--faint)', fontSize: 13, fontStyle: 'italic', marginBottom: 32, animation: 'fadeUp .6s .16s ease both' }}>Trusted by 100+ businesses in Nigeria</p>
 
             <div style={{ display: 'flex', flexDirection: mob ? 'column' : 'row', gap: 12, animation: 'fadeUp .6s .22s ease both', marginBottom: 14 }}>
               <a href={waHref('Hi Oklah Hub! I want to get started for my business.')} target="_blank" rel="noopener" className="btn btn-g"
@@ -657,11 +657,11 @@ function Services({ mob }) {
                   </li>
                 ))}
               </ul>
-              <WaBtn msg={s.msg} label="Get Started — WhatsApp" full />
               <a href={`mailto:info@oklahhub.com?subject=${encodeURIComponent(s.emailSubject)}`}
                 className="btn btn-o" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '11px', borderRadius: 12, textDecoration: 'none', marginTop: 8, width: '100%', fontSize: 14, fontWeight: 600 }}>
-                ✉️ Email Us — info@oklahhub.com
+                ✉️ Email Us 
               </a>
+              <WaBtn msg={s.msg} label="Get Started — WhatsApp" full />
             </div>
           ))}
         </div>
@@ -859,46 +859,90 @@ function Testimonials({ mob }) {
 
 /* ── ABOUT ── */
 function About({ mob }) {
+  const values = [
+    { icon: '⚡', title: 'Speed', desc: 'Setup in 48 hours, every time.' },
+    { icon: '🔒', title: 'Security', desc: 'Enterprise-grade protection.' },
+    { icon: '🤝', title: 'Trust', desc: 'Real humans, fast responses.' },
+    { icon: '🌍', title: 'Access', desc: 'World-class tools, fair prices.' },
+  ];
   return (
-    <section id="about" style={{ background: 'var(--bg)', padding: mob ? '64px 20px' : '112px 32px', borderTop: '1px solid var(--border)' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', gap: mob ? 40 : 80, alignItems: 'center' }}>
-        <div className="rv-sc" style={{ background: 'linear-gradient(145deg,#071E3D,#0D4C8F 60%,#1565C0)', borderRadius: 24, padding: mob ? 32 : 52, position: 'relative', overflow: 'hidden', boxShadow: '0 24px 80px rgba(13,76,143,.3)', order: mob ? 2 : 1, border: '1px solid rgba(249,115,22,.2)' }}>
-          <div style={{ position: 'absolute', top: -80, right: -80, width: 280, height: 280, borderRadius: '50%', background: 'rgba(14,165,233,.2)', filter: 'blur(50px)', pointerEvents: 'none' }} />
-          <div style={{ position: 'absolute', bottom: -80, left: -80, width: 240, height: 240, borderRadius: '50%', background: 'rgba(249,115,22,.22)', filter: 'blur(50px)', pointerEvents: 'none' }} />
-          <div style={{ position: 'relative', textAlign: 'center' }}>
-            <Logo h={mob ? 90 : 110} inv />
-            <p style={{ fontSize: mob ? 17 : 19, fontStyle: 'italic', color: 'rgba(255,255,255,.82)', lineHeight: 1.65, margin: '28px 0 32px', fontWeight: 500 }}>"More than a product,<br />it's your security."</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'center' }}>
+    <section id="about" style={{ background: 'var(--bg-alt)', padding: mob ? '64px 20px' : '112px 32px', borderTop: '1px solid var(--border)' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+
+        {/* Header */}
+        <div className="rv" style={{ textAlign: 'center', marginBottom: mob ? 48 : 72 }}>
+          <span style={{ display: 'inline-block', background: 'rgba(13,76,143,.07)', color: 'var(--navy)', padding: '5px 14px', borderRadius: 100, fontSize: 11, fontWeight: 700, letterSpacing: '.07em', textTransform: 'uppercase', marginBottom: 16, border: '1px solid rgba(13,76,143,.1)' }}>About Us</span>
+          <h2 style={{ fontSize: mob ? 28 : 'clamp(28px,3.5vw,48px)', fontWeight: 900, color: 'var(--text)', letterSpacing: '-.04em', lineHeight: 1.08, marginBottom: 16, maxWidth: 640, margin: '0 auto 16px' }}>
+            The team making your{' '}
+            <span className="shimmer">business unstoppable.</span>
+          </h2>
+          <p style={{ color: 'var(--muted)', fontSize: mob ? 15 : 17, maxWidth: 520, margin: '0 auto', lineHeight: 1.7 }}>
+            Oklah Hub was built for one reason: every business deserves to look professional, regardless of size or budget.
+          </p>
+        </div>
+
+        {/* Two-col */}
+        <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', gap: mob ? 32 : 56, alignItems: 'start' }}>
+
+          {/* Left — story + contacts */}
+          <div className="rv-l">
+            <h3 style={{ fontSize: mob ? 20 : 24, fontWeight: 800, color: 'var(--text)', letterSpacing: '-.02em', marginBottom: 14, lineHeight: 1.25 }}>
+              Your dedicated tech team — without the overhead.
+            </h3>
+            <p style={{ color: 'var(--muted)', fontSize: mob ? 15 : 16, lineHeight: 1.85, marginBottom: 14 }}>
+              We help businesses and startups look professional, stay secure and maintain a modern online presence — without the complexity or cost.
+            </p>
+            <p style={{ color: 'var(--muted)', fontSize: mob ? 15 : 16, lineHeight: 1.85, marginBottom: 28 }}>
+              From day one, we've been committed to making the tools big companies use accessible to every entrepreneur, anywhere in the world.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               {[
-                { icon: '✉️', v: 'info@oklahhub.com', href: 'mailto:info@oklahhub.com' },
-                { icon: '💬', v: '+234 911 558 1148', href: `https://wa.me/${WA}` },
-                { icon: '📸', v: '@oklahhub_ng', href: 'https://www.instagram.com/oklahhub_ng' }
+                { icon: '✉️', label: 'Email', v: 'info@oklahhub.com', href: 'mailto:info@oklahhub.com' },
+                { icon: '💬', label: 'WhatsApp', v: '+234 911 558 1148', href: `https://wa.me/${WA}` },
+                { icon: '📸', label: 'Instagram', v: '@oklahhub_ng', href: 'https://www.instagram.com/oklahhub_ng' },
               ].map(c => (
                 <a key={c.v} href={c.href} target="_blank" rel="noopener"
-                  style={{ color: 'rgba(255,255,255,.55)', fontSize: 14, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8, transition: 'color .2s' }}
-                  onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,.55)'}
-                >{c.icon} {c.v}</a>
+                  style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '13px 16px', borderRadius: 14, background: 'var(--card)', border: '1px solid var(--border)', textDecoration: 'none', transition: 'border-color .2s,box-shadow .2s,transform .2s' }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(13,76,143,.35)'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = 'var(--sh-md)' }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = 'none' }}
+                >
+                  <span style={{ width: 38, height: 38, borderRadius: 10, background: 'linear-gradient(135deg,var(--navy),var(--sky))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, flexShrink: 0 }}>{c.icon}</span>
+                  <div>
+                    <div style={{ fontSize: 11, color: 'var(--faint)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '.06em', marginBottom: 2 }}>{c.label}</div>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)' }}>{c.v}</div>
+                  </div>
+                </a>
               ))}
             </div>
           </div>
-        </div>
 
-        <div className="rv-r" style={{ order: mob ? 1 : 2 }}>
-          <span style={{ display: 'inline-block', background: 'rgba(13,76,143,.07)', color: 'var(--navy)', padding: '5px 14px', borderRadius: 100, fontSize: 11, fontWeight: 700, letterSpacing: '.07em', textTransform: 'uppercase', marginBottom: 16, border: '1px solid rgba(13,76,143,.1)' }}>About Us</span>
-          <h2 style={{ fontSize: mob ? 26 : 'clamp(26px,3vw,40px)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-.03em', lineHeight: 1.1, marginBottom: 20 }}>
-            Business-in-a-box for{' '}
-            <span className="shimmer">growing entrepreneurs.</span>
-          </h2>
-          <p style={{ color: 'var(--muted)', fontSize: mob ? 15 : 16, lineHeight: 1.8, marginBottom: 16 }}>Oklah Hub is a technical service provider helping businesses and startups look professional, stay secure and maintain a modern online presence — without the complexity or cost.</p>
-          <p style={{ color: 'var(--muted)', fontSize: mob ? 15 : 16, lineHeight: 1.8, marginBottom: 36 }}>Every business deserves enterprise-grade infrastructure. We make that possible — affordably.</p>
-          <div style={{ display: 'flex', gap: mob ? 28 : 44 }}>
-            {[{ v: '100+', l: 'Businesses served', c: 'var(--navy)' }, { v: '4', l: 'Core services', c: 'var(--sky)' }, { v: '48h', l: 'Average setup', c: 'var(--orange)' }].map(s => (
-              <div key={s.l}>
-                <div style={{ fontSize: mob ? 30 : 36, fontWeight: 900, color: s.c, letterSpacing: '-.03em', lineHeight: 1 }}>{s.v}</div>
-                <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 5 }}>{s.l}</div>
-              </div>
-            ))}
+          {/* Right — metrics + values + quote */}
+          <div className="rv-r">
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 10, marginBottom: 12 }}>
+              {[{ v: '100+', l: 'Businesses served', c: 'var(--navy)' }, { v: '4', l: 'Core services', c: 'var(--sky)' }, { v: '48h', l: 'Avg. setup time', c: 'var(--orange)' }].map(s => (
+                <div key={s.l} style={{ background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 16, padding: '18px 12px', textAlign: 'center', boxShadow: 'var(--sh-sm)' }}>
+                  <div style={{ fontSize: mob ? 24 : 30, fontWeight: 900, color: s.c, letterSpacing: '-.03em', lineHeight: 1, marginBottom: 5 }}>{s.v}</div>
+                  <div style={{ fontSize: 11, color: 'var(--muted)', lineHeight: 1.4 }}>{s.l}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 12 }}>
+              {values.map((v, i) => (
+                <div key={i} style={{ background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 16, padding: '18px 16px', boxShadow: 'var(--sh-sm)', transition: 'border-color .2s,transform .2s,box-shadow .2s', cursor: 'default' }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(13,76,143,.35)'; e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = 'var(--sh-md)' }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border)'; e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = 'var(--sh-sm)' }}
+                >
+                  <div style={{ fontSize: 22, marginBottom: 8 }}>{v.icon}</div>
+                  <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--text)', marginBottom: 4, letterSpacing: '-.01em' }}>{v.title}</div>
+                  <div style={{ fontSize: 12, color: 'var(--muted)', lineHeight: 1.55 }}>{v.desc}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{ background: 'linear-gradient(135deg,var(--navy),var(--sky))', borderRadius: 16, padding: '22px 20px', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', top: -30, right: -30, width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,255,255,.08)', filter: 'blur(20px)', pointerEvents: 'none' }} />
+              <Logo h={26} inv />
+              <p style={{ fontSize: mob ? 14 : 15, fontStyle: 'italic', color: 'rgba(255,255,255,.9)', lineHeight: 1.65, margin: '12px 0 0', fontWeight: 500, position: 'relative' }}>"More than a product — it's your security."</p>
+            </div>
           </div>
         </div>
       </div>
