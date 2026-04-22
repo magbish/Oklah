@@ -3,15 +3,65 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#0D4C8F" />
+<meta name="theme-color" content="#0D4C8F" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#060C1A" media="(prefers-color-scheme: dark)" />
 <meta name="description" content="Professional email, Microsoft 365, business websites and graphics for growing businesses in Nigeria. Setup in 48 hours. From ₦35,000/year." />
 <title>Oklah Hub — Professional Email, Microsoft 365 &amp; Business Websites</title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="asset/logo.png" />
+<link rel="apple-touch-icon" href="asset/logo.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Oklah Hub" />
+<meta property="og:title" content="Oklah Hub — Professional Email, Microsoft 365 &amp; Business Websites" />
+<meta property="og:description" content="Business-in-a-box for growing entrepreneurs. Microsoft 365 from ₦35,000/year, branded email, websites from ₦250,000 and brand design — set up in 48 hours." />
+<meta property="og:image" content="asset/hero-background.jpeg" />
+<meta property="og:image:alt" content="Oklah Hub — professional business tools" />
+<meta property="og:locale" content="en_NG" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Oklah Hub — Professional Email, Microsoft 365 &amp; Business Websites" />
+<meta name="twitter:description" content="Branded email, Microsoft 365 from ₦35,000/year, websites from ₦250,000. Set up in 48 hours." />
+<meta name="twitter:image" content="asset/hero-background.jpeg" />
+
+<!-- Perf hints -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900;Tangerine:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://unpkg.com" crossorigin />
+<link rel="preload" as="image" href="asset/hero-background.jpeg" fetchpriority="high" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<!-- JSON-LD: Organization schema for rich results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Oklah Hub",
+  "url": "https://oklahhub.com",
+  "logo": "asset/logo.png",
+  "image": "asset/hero-background.jpeg",
+  "description": "Business-in-a-box technical provider — professional email, Microsoft 365, websites and brand design for growing businesses.",
+  "slogan": "More than a product, it's your security",
+  "address": { "@type": "PostalAddress", "addressCountry": "NG" },
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "telephone": "+234-911-558-1148",
+    "email": "info@oklahhub.com",
+    "availableLanguage": ["English"]
+  }],
+  "sameAs": [
+    "https://www.instagram.com/oklahhub_ng",
+    "https://wa.me/2349115581148"
+  ]
+}
+</script>
 <style>
 /* ── TOKENS ── */
 :root{
@@ -793,7 +843,10 @@ function Services({ mob }) {
                 className="btn btn-o" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '11px', borderRadius: 12, textDecoration: 'none', marginTop: 8, width: '100%', fontSize: 14, fontWeight: 600 }}>
                 <MailIco s={15} /> Email Us
               </a>
-              <WaBtn msg={s.msg} label="Get Started — WhatsApp" full />
+              <a href={waHref(s.msg)} target="_blank" rel="noopener"
+                className="btn btn-o" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '11px', borderRadius: 12, textDecoration: 'none', marginTop: 8, width: '100%', fontSize: 14, fontWeight: 600 }}>
+                <WaIco s={15} /> WhatsApp
+              </a>
             </div>
           ))}
         </div>
@@ -810,7 +863,7 @@ function Pricing({ mob }) {
         <div className="rv" style={{ textAlign: 'center', marginBottom: mob ? 40 : 56 }}>
           <span style={{ display: 'inline-block', background: 'rgba(249,115,22,.08)', color: '#C2410C', padding: '5px 14px', borderRadius: 100, fontSize: 11, fontWeight: 700, letterSpacing: '.07em', textTransform: 'uppercase', marginBottom: 14, border: '1px solid rgba(249,115,22,.12)' }}>Pricing</span>
           <h2 style={{ fontSize: mob ? 26 : 'clamp(28px,3.5vw,44px)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-.03em', lineHeight: 1.1, marginBottom: 14 }}>Affordable pricing. Real results.</h2>
-          <p style={{ color: 'var(--muted)', fontSize: mob ? 15 : 17, maxWidth: 460, margin: '0 auto' }}>Less than ₦3,000/month to look like an established company. No setup fee, no contract.</p>
+          <p style={{ color: 'var(--muted)', fontSize: mob ? 15 : 17, maxWidth: 460, margin: '0 auto' }}>Affordable pricing to look like an established company. No setup fee, no contract.</p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', gap: mob ? 16 : 24, maxWidth: 960, margin: '0 auto' }}>
@@ -943,8 +996,8 @@ function StatsBand({ mob }) {
 
 /* ── TESTIMONIALS ── */
 const REVIEWS = [
-  { name: 'Sarah Martinez', role: 'CEO, Martinez & Co.', body: 'I was embarrassed to share my Gmail with big clients. Within 48 hours, Oklah Hub gave me a proper branded email. The difference was immediate.', stars: 5 },
-  { name: 'James Chen', role: 'Founder, ChenTech Solutions', body: '₦35,000 a year for Microsoft 365 with Copilot AI? One of the best business decisions I\'ve made. The AI alone saves me hours every week.', stars: 5 },
+  { name: 'Temi Bukola', role: 'Data Analyst', body: 'I was embarrassed to share my Gmail with big clients. Within 48 hours, Oklah Hub gave me a proper branded email. The difference was immediate.', stars: 5 },
+  { name: 'Chinedu Ugo', role: 'Co-Founder, Martinez & Co.', body: '₦35,000 a year for Microsoft 365 with Copilot AI? One of the best business decisions I\'ve made. The AI alone saves me hours every week.', stars: 5 },
   { name: 'Amara Williams', role: 'Director, Bright Futures Academy', body: 'Our old website was embarrassing us. Oklah Hub redesigned it and now handles everything. We\'ve enrolled more students since the relaunch.', stars: 5 },
 ];
 
@@ -1076,7 +1129,7 @@ function About({ mob }) {
 const FAQS = [
   { q: 'How quickly can I get started?', a: 'Very fast. Send us a WhatsApp message, tell us what you need, and we can have most services set up within 24–48 hours. No long forms, no waiting weeks.' },
   { q: "I'm not tech-savvy. Will this be complicated?", a: "Not at all — that's exactly why we exist. You don't touch any technical settings. We handle everything from A to Z. You just use the finished product." },
-  { q: 'Is the Microsoft 365 ₦35,000 price per person?', a: "Yes, it's per user per year — less than ₦3,000/month. For team pricing, message us on WhatsApp and we'll work out the best deal for you." },
+  { q: 'Is the Microsoft 365 ₦35,000 price per person?', a: "Yes, it's per user per year. For team pricing, message us on WhatsApp and we'll work out the best deal for you." },
   { q: 'Do I need to sign a long-term contract?', a: 'No contracts, no lock-ins. We earn your business every month. You can cancel anytime — no questions asked.' },
   { q: 'How do I pay?', a: 'Pay directly online via our secure payment link for Microsoft 365, or via bank transfer. Message us on WhatsApp to get started with any service.' },
 ];
@@ -1229,7 +1282,7 @@ function Footer({ mob }) {
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ display: 'flex', flexDirection: mob ? 'column' : 'row', justifyContent: 'space-between', alignItems: mob ? 'flex-start' : 'center', gap: 24, marginBottom: 32, paddingBottom: 32, borderBottom: '1px solid rgba(255,255,255,.07)' }}>
           <div>
-            <span style={{ display: 'inline-flex', background: '#fff', padding: '8px 12px', borderRadius: 10, boxShadow: '0 2px 10px rgba(0,0,0,.2)' }}><Logo h={26} /></span>
+            <Logo h={26} />
             <p style={{ color: 'rgba(255,255,255,.72)', fontSize: 13, marginTop: 12, maxWidth: 300 }}>Professional tools & presence for growing businesses worldwide.</p>
           </div>
           <nav aria-label="Footer" style={{ display: 'flex', gap: mob ? 20 : 32, flexWrap: 'wrap' }}>
