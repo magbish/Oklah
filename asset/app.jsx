@@ -578,6 +578,7 @@ const SVCS = [
   { Icon: IcPalette, tag: 'Custom pricing', title: 'Graphics & Logo Design', desc: 'A strong brand starts with great visuals. We create custom logos, brand identities and social media graphics that make your business stand out.', features: ['Custom logo design', 'Full brand identity kit', 'Social media graphics & assets', 'Consistent style across platforms'], msg: 'Hi Oklah Hub! I want graphics and logo design.', emailSubject: 'Graphics & Logo Design Inquiry' },
 ];
 
+
 function Services({ mob }) {
   const svcTicker = [
     { price: '₦35,000/yr', text: 'A website that works while you sleep. We design, build, and fully manage your business website, ecommerce or full web app. You focus on customers, we handle the tech.' },
