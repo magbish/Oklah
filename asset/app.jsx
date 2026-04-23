@@ -1158,7 +1158,7 @@ function App() {
       {/* WA FAB */}
       <a href={waHref('Hi Oklah Hub! I want to get started.')} target="_blank" rel="noopener" className="wa-fab" aria-label="Chat on WhatsApp, replies in 1 hour">
         <WaIco s={28} />
-        <span className="wa-tip" aria-hidden="true">Chat on WhatsApp — replies in 1 hr</span>
+        <span className="wa-tip" aria-hidden="true">Chat on WhatsApp, replies in 1 hr</span>
       </a>
 
 
