@@ -843,7 +843,7 @@ function Pricing({ mob }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <a href="https://paystack.shop/pay/oklahhubm365" target="_blank" rel="noopener" className="btn"
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: 'linear-gradient(135deg,#F97316,#FB923C)', color: '#fff', padding: '15px', borderRadius: 12, fontWeight: 800, textDecoration: 'none', fontSize: 15, minHeight: 52, boxShadow: '0 6px 20px rgba(249,115,22,.4)' }}>
-                  <IcCard s={18} /> Pay Now — ₦35,000/user/year
+                  <IcCard s={18} /> Pay Now — ₦35,000 per user/year
                 </a>
                 <a href={waHref('Hi Oklah Hub! I want Microsoft 365.')} target="_blank" rel="noopener" className="btn"
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: 'rgba(255,255,255,.08)', border: '1px solid rgba(255,255,255,.18)', color: '#fff', padding: '12px', borderRadius: 12, fontWeight: 700, textDecoration: 'none', fontSize: 14, minHeight: 46 }}>
@@ -923,7 +923,6 @@ function StatsBand({ mob }) {
     { to: 100, suf: '+', label: 'Businesses Served' },
     { to: 48, suf: ' hrs', label: 'Average Setup Time' },
     { to: 1, suf: ' hr', label: 'Support Response' },
-    { to: 4, suf: '', label: 'Core Services' },
   ];
   return (
     <section style={{ background: 'linear-gradient(135deg,var(--navy-d),var(--navy) 50%,#1565C0)', padding: mob ? '48px 20px' : '64px 32px', borderTop: '1px solid rgba(255,255,255,.04)' }}>
@@ -1209,7 +1208,7 @@ function Contact({ mob }) {
               <textarea className="oh-input" rows="4" placeholder="What do you need? (optional)" aria-label="Message" value={form.message} onChange={e => up('message', e.target.value)} />
               <button type="submit" className="btn btn-g" disabled={sending} aria-busy={sending}
                 style={{ padding: '15px', fontSize: 15, minHeight: 52, borderRadius: 12, width: '100%', opacity: sending ? .7 : 1, cursor: sending ? 'wait' : 'pointer' }}>
-                {sending ? <><span className="ld-ring" style={{ width: 16, height: 16, borderWidth: 2 }} aria-hidden="true"/> Opening WhatsApp…</> : <><WaIco s={16} /> Send via WhatsApp</>}
+                {sending ? <><span className="ld-ring" style={{ width: 16, height: 16, borderWidth: 2 }} aria-hidden="true"/> Opening WhatsApp…</> : <><WaIco s={16} /> Send </>}
               </button>
               <p style={{ color: 'var(--muted)', fontSize: 11, textAlign: 'center', marginTop: 2 }}>We'll never spam you. Your details stay private.</p>
             </form>
@@ -1301,11 +1300,7 @@ function App() {
         <span className="wa-tip" aria-hidden="true">Chat on WhatsApp — replies in 1 hr</span>
       </a>
 
-      {/* WA sticky (mobile) */}
-      <a href={waHref('Hi Oklah Hub! I want to get started.')} target="_blank" rel="noopener" className="wa-sticky" aria-label="Chat on WhatsApp — get started free">
-        <WaIco s={19} />
-        <span aria-hidden="true">Chat on WhatsApp — Get Started Free</span>
-      </a>
+
 
       
       <button id="bt" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Back to top">
