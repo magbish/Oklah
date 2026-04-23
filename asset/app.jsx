@@ -971,6 +971,7 @@ function Contact({ mob }) {
     <section id="contact" className="cv-auto" style={{ background: 'var(--bg)', padding: mob ? '64px 20px' : '96px 32px', borderTop: '1px solid var(--border)' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: mob ? '1fr' : '1.05fr .95fr', gap: mob ? 20 : 28, alignItems: 'stretch' }}>
 
+
         {/* Left */}
         <div className="rv-l" style={{ background: 'linear-gradient(145deg,#071E3D 0%,#0D4C8F 55%,#1565C0 100%)', borderRadius: mob ? 20 : 28, padding: mob ? '40px 24px' : '52px 48px', position: 'relative', overflow: 'hidden', boxShadow: '0 24px 80px rgba(13,76,143,.28)', border: '1px solid rgba(249,115,22,.2)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{ position: 'absolute', top: -100, right: -100, width: 360, height: 360, borderRadius: '50%', background: 'rgba(14,165,233,.16)', filter: 'blur(60px)', pointerEvents: 'none' }} />
