@@ -981,7 +981,24 @@ function Contact({ mob }) {
               Your competitors already<br />look more professional.<br />
               <span className="shimmer">Fix that today.</span>
             </h2>
-            <p style={{ color: 'rgba(255,255,255,.6)', fontSize: mob ? 15 : 16, marginBottom: 28, maxWidth: 420, lineHeight: 1.7 }}>Get in touch with our team for a response within sixty minutes. For detailed inquiries, please complete the form below.</p>
+            <p style={{ color: 'rgba(255,255,255,.6)', fontSize: mob ? 15 : 16, marginBottom: 16, maxWidth: 420, lineHeight: 1.7 }}>Reach out today - we'll respond within the hour. Prefer details? Simply fill out the form to learn more.</p>
+            <div style={{ display: 'flex', gap: 10, marginBottom: 24, flexWrap: 'wrap' }}>
+              <a href={waHref('Hi Oklah Hub! I want to get started.')} target="_blank" rel="noopener"
+                aria-label="Contact us on WhatsApp"
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,#25D366,#128C7E)', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(37,211,102,.32)' }}>
+                <WaIco s={16} />
+              </a>
+              <a href="https://www.instagram.com/oklahhub_ng" target="_blank" rel="noopener"
+                aria-label="Follow us on Instagram"
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,#E1306C,#F77737)', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(225,48,108,.32)' }}>
+                <IgIco s={16} />
+              </a>
+              <a href="mailto:info@oklahhub.com"
+                aria-label="Email info@oklahhub.com"
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,var(--navy),var(--sky))', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(13,76,143,.3)' }}>
+                <MailIco s={16} />
+              </a>
+            </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
               <a href="mailto:info@oklahhub.com" className="btn btn-o" style={{ justifyContent: 'center', padding: '12px 24px', fontSize: 14, color: 'rgba(255,255,255,.75)', borderColor: 'rgba(255,255,255,.18)', background: 'rgba(255,255,255,.07)' }}>
                 <MailIco s={15} /> info@oklahhub.com
@@ -1003,7 +1020,7 @@ function Contact({ mob }) {
         <div className="rv-r" style={{ background: 'var(--card)', borderRadius: mob ? 20 : 28, padding: mob ? 24 : 36, border: '1px solid var(--border)', boxShadow: 'var(--sh-sm)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{ marginBottom: 22 }}>
             <h3 style={{ fontSize: mob ? 20 : 22, fontWeight: 800, color: 'var(--text)', letterSpacing: '-.02em', marginBottom: 6 }}>Tell us about your business.</h3>
-            <p style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.6 }}>Fill in a few details — we'll reply on WhatsApp within the hour.</p>
+            <p style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.6 }}>Fill in a few details — we'll reply within the hour.</p>
           </div>
           <div aria-live="polite" aria-atomic="true">
             {sent && (
