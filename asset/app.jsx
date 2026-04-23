@@ -183,6 +183,17 @@ const Logo = ({ h = 32 }) => (
   />
 );
 
+const MicrosoftIco = ({ s = 20 }) => (
+  <img
+    src="asset/microsoft-windows.png"
+    alt=""
+    aria-hidden="true"
+    width={s}
+    height={s}
+    style={{ width: s, height: s, objectFit: 'contain', display: 'block' }}
+  />
+);
+
 /* ── THEME TOGGLE ── */
 const Toggle = ({ dark, set }) => (
   <button className={`tog ${dark ? 'on' : ''}`} onClick={() => set(d => !d)} aria-label={dark ? 'Light mode' : 'Dark mode'}>
@@ -344,7 +355,7 @@ function HeroCards() {
           </div>
         </div>
         <div style={{ display: 'flex', gap: 6, marginTop: 14, flexWrap: 'wrap' }}>
-          {[{ Icon: IcBriefcase, l: 'M365' },{ Icon: IcGlobe, l: 'Website' },{ Icon: IcPalette, l: 'Graphics' },{ Icon: MailIco, l: 'Email' }].map(b => (
+          {[{ Icon: MicrosoftIco, l: 'M365' },{ Icon: IcGlobe, l: 'Website' },{ Icon: IcPalette, l: 'Graphics' },{ Icon: MailIco, l: 'Email' }].map(b => (
             <span key={b.l} style={{ background: 'rgba(255,255,255,.15)', color: '#fff', padding: '5px 10px', borderRadius: 100, fontSize: 11, fontWeight: 600, border: '1px solid rgba(255,255,255,.2)', display: 'inline-flex', alignItems: 'center', gap: 5 }}><b.Icon s={12} />{b.l}</span>
           ))}
         </div>
@@ -439,7 +450,7 @@ function Hero({ mob }) {
 function TrustBar() {
   const items = [
     { Icon: MailIco, label: 'Professional Email' },
-    { Icon: IcBriefcase, label: 'Microsoft 365' },
+    { Icon: MicrosoftIco, label: 'Microsoft 365' },
     { Icon: IcGlobe, label: 'Business Websites' },
     { Icon: IcPalette, label: 'Logo & Brand Design' },
     { Icon: IcZap, label: '48-Hour Setup' },
@@ -533,18 +544,18 @@ function HowItWorks({ mob }) {
                   <div style={{ display: 'flex', gap: 10, marginTop: 16, flexWrap: 'wrap', justifyContent: mob ? 'flex-start' : 'center' }}>
                     <a href={waHref('Hi Oklah Hub! I want to get started.')} target="_blank" rel="noopener"
                       aria-label="Contact us on WhatsApp"
-                      style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 14px', borderRadius: 10, background: 'linear-gradient(135deg,#25D366,#128C7E)', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: 13, boxShadow: '0 4px 14px rgba(37,211,102,.32)' }}>
-                      <WaIco s={16} /> WhatsApp
+                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,#25D366,#128C7E)', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(37,211,102,.32)' }}>
+                      <WaIco s={16} />
                     </a>
                     <a href="https://www.instagram.com/oklahhub_ng" target="_blank" rel="noopener"
                       aria-label="Follow us on Instagram"
-                      style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 14px', borderRadius: 10, background: 'linear-gradient(135deg,#E1306C,#F77737)', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: 13, boxShadow: '0 4px 14px rgba(225,48,108,.32)' }}>
-                      <IgIco s={16} /> Instagram
+                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,#E1306C,#F77737)', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(225,48,108,.32)' }}>
+                      <IgIco s={16} />
                     </a>
                     <a href="mailto:info@oklahhub.com"
                       aria-label="Email info@oklahhub.com"
-                      style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '10px 14px', borderRadius: 10, background: 'linear-gradient(135deg,var(--navy),var(--sky))', color: '#fff', textDecoration: 'none', fontWeight: 700, fontSize: 13, boxShadow: '0 4px 14px rgba(13,76,143,.3)' }}>
-                      <MailIco s={16} /> Email
+                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,var(--navy),var(--sky))', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(13,76,143,.3)' }}>
+                      <MailIco s={16} />
                     </a>
                   </div>
                 )}
@@ -561,7 +572,7 @@ function HowItWorks({ mob }) {
 
 /* ── SERVICES ── */
 const SVCS = [
-  { Icon: IcBriefcase, tag: '₦35,000/user/year', title: 'Microsoft 365', desc: 'Premium Office apps to unlock your creativity and achieve more. Word, Excel, PowerPoint, Outlook and OneNote — now enhanced with Microsoft Copilot and 1 TB secure OneDrive storage.', features: ['Word, Excel, PowerPoint, Outlook & OneNote', 'Microsoft Copilot AI built-in', '1 TB secure OneDrive cloud storage', 'Works on phone, tablet & PC'], msg: 'Hi Oklah Hub! I want Microsoft 365 for my business.', emailSubject: 'Microsoft 365 Inquiry', featured: true },
+  { Icon: MicrosoftIco, tag: '₦35,000/user/year', title: 'Microsoft 365', desc: 'Premium Office apps to unlock your creativity and achieve more. Word, Excel, PowerPoint, Outlook and OneNote — now enhanced with Microsoft Copilot and 1 TB secure OneDrive storage.', features: ['Word, Excel, PowerPoint, Outlook & OneNote', 'Microsoft Copilot AI built-in', '1 TB secure OneDrive cloud storage', 'Works on phone, tablet & PC'], msg: 'Hi Oklah Hub! I want Microsoft 365 for my business.', emailSubject: 'Microsoft 365 Inquiry', featured: true },
   { Icon: MailIco, tag: 'Custom pricing', title: 'Professional Business Email', desc: "Stop losing deals because you're emailing from Gmail or Yahoo. A branded email like you@yourbusiness.com builds instant trust.", features: ['you@yourbusiness.com address', 'Full setup done for you', 'Spam protection & security', 'Fully managed — worry-free'], msg: 'Hi Oklah Hub! I want a professional business email.', emailSubject: 'Business Email Inquiry' },
   { Icon: IcGlobe, tag: 'from ₦250,000', title: 'Website Design & Management', desc: 'A website that works while you sleep. We design, build and fully manage your business site — static, e-commerce or full web app — you focus on customers, we handle the tech.', features: ['Static business website — from ₦250,000', 'E-commerce store — custom pricing', 'Web application — contact us for pricing', 'We manage all updates & upkeep', 'Fast, secure & always-on'], msg: 'Hi Oklah Hub! I want a professional website.', emailSubject: 'Website Design Inquiry' },
   { Icon: IcPalette, tag: 'Custom pricing', title: 'Graphics & Logo Design', desc: 'A strong brand starts with great visuals. We create custom logos, brand identities and social-media graphics that make your business stand out.', features: ['Custom logo design', 'Full brand identity kit', 'Social media graphics & assets', 'Consistent style across platforms'], msg: 'Hi Oklah Hub! I want graphics and logo design.', emailSubject: 'Graphics & Logo Design Inquiry' },
@@ -860,8 +871,8 @@ function About({ mob }) {
 
           {/* Right — metrics + values + quote */}
           <div className="rv-r">
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 10, marginBottom: 12 }}>
-              {[{ v: '100+', l: 'Businesses served', c: 'var(--navy)' }, { v: '4', l: 'Core services', c: 'var(--sky)' }, { v: '48h', l: 'Avg. setup time', c: 'var(--orange)' }].map(s => (
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 10, marginBottom: 12 }}>
+              {[{ v: '100+', l: 'Businesses served', c: 'var(--navy)' }, { v: '48h', l: 'Avg. setup time', c: 'var(--orange)' }].map(s => (
                 <div key={s.l} style={{ background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 16, padding: '18px 12px', textAlign: 'center', boxShadow: 'var(--sh-sm)' }}>
                   <div style={{ fontSize: mob ? 24 : 30, fontWeight: 900, color: s.c, letterSpacing: '-.03em', lineHeight: 1, marginBottom: 5 }}>{s.v}</div>
                   <div style={{ fontSize: 11, color: 'var(--muted)', lineHeight: 1.4 }}>{s.l}</div>
@@ -1023,7 +1034,7 @@ function Contact({ mob }) {
               <textarea className="oh-input" rows="4" placeholder="What do you need? (optional)" aria-label="Message" value={form.message} onChange={e => up('message', e.target.value)} />
               <button type="submit" className="btn btn-p" disabled={sending} aria-busy={sending}
                 style={{ padding: '15px', fontSize: 15, minHeight: 52, borderRadius: 12, width: '100%', opacity: sending ? .7 : 1, cursor: sending ? 'wait' : 'pointer' }}>
-                {sending ? <><span className="ld-ring" style={{ width: 16, height: 16, borderWidth: 2 }} aria-hidden="true"/> Opening WhatsApp…</> : <><WaIco s={16} /> Send </>}
+                {sending ? <><span className="ld-ring" style={{ width: 16, height: 16, borderWidth: 2 }} aria-hidden="true"/> Opening WhatsApp…</> : <>Send</>}
               </button>
               <p style={{ color: 'var(--muted)', fontSize: 11, textAlign: 'center', marginTop: 2 }}>We'll never spam you. Your details stay private.</p>
             </form>
