@@ -544,12 +544,12 @@ function HowItWorks({ mob }) {
                   <div style={{ display: 'flex', gap: 10, marginTop: 16, flexWrap: 'wrap', justifyContent: mob ? 'flex-start' : 'center' }}>
                     <a href={waHref('Hi Oklah Hub! I want to get started.')} target="_blank" rel="noopener"
                       aria-label="Contact us on WhatsApp"
-                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,#25D366,#128C7E)', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(37,211,102,.32)' }}>
+                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,var(--navy),var(--sky))', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(13,76,143,.3)' }}>
                       <WaIco s={16} />
                     </a>
                     <a href="https://www.instagram.com/oklahhub_ng" target="_blank" rel="noopener"
                       aria-label="Follow us on Instagram"
-                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,#E1306C,#F77737)', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(225,48,108,.32)' }}>
+                      style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,var(--navy),var(--sky))', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(13,76,143,.3)' }}>
                       <IgIco s={16} />
                     </a>
                     <a href="mailto:info@oklahhub.com"
