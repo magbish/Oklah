@@ -388,8 +388,8 @@ function Hero({ mob }) {
           {/* LEFT */}
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ animation: 'fadeUp .5s ease both', marginBottom: 22 }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(74,222,128,.1)', border: '1px solid rgba(74,222,128,.22)', color: '#4ADE80', padding: '7px 16px', borderRadius: 100, fontSize: 13, fontWeight: 600 }}>
-                <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#4ADE80', boxShadow: '0 0 10px #4ADE80', flexShrink: 0 }} />
+              <span className="hero-chip" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(74,222,128,.1)', border: '1px solid rgba(74,222,128,.22)', color: '#4ADE80', padding: '7px 16px', borderRadius: 100, fontSize: 13, fontWeight: 600 }}>
+                <span className="hero-chip-dot" style={{ width: 7, height: 7, borderRadius: '50%', background: '#4ADE80', boxShadow: '0 0 10px #4ADE80', flexShrink: 0 }} />
                 Trusted by 100+ businesses worldwide
               </span>
             </div>
@@ -405,7 +405,7 @@ function Hero({ mob }) {
             <p style={{ color: 'var(--faint)', fontSize: 13, fontStyle: 'italic', marginBottom: 32, animation: 'fadeUp .6s .16s ease both' }}>"More than a product — it's your security."</p>
 
             <div style={{ display: 'flex', animation: 'fadeUp .6s .22s ease both', marginBottom: 14 }}>
-              <a href="#services" className="btn btn-p"
+              <a href="#services" className="btn btn-p hero-cta"
                 style={{ padding: '16px 32px', fontSize: mob ? 16 : 17, minHeight: 56, borderRadius: 14, justifyContent: 'center', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
                 Explore Services <IcArrowDown s={18} />
               </a>
@@ -431,7 +431,7 @@ function Hero({ mob }) {
             { l: 'Response Time', to: 1, suf: ' hr' },
             { l: 'Client Rating', to: 5, suf: '/5', star: true }
           ].map((s, i) => (
-            <div key={i} style={{ padding: '20px 16px', textAlign: 'center', background: 'var(--card)' }}>
+            <div key={i} className="hero-metric" style={{ padding: '20px 16px', textAlign: 'center', background: 'var(--card)', animationDelay: `${i * 140}ms` }}>
               <div style={{ fontSize: mob ? 22 : 26, fontWeight: 900, color: 'var(--navy)', letterSpacing: '-.03em', lineHeight: 1, marginBottom: 6, display: 'inline-flex', alignItems: 'center', gap: 4, justifyContent: 'center' }}>
                 <Counter to={s.to} suffix={s.suf} />
                 {s.star && <StarIco />}
@@ -664,11 +664,11 @@ function Pricing({ mob }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 <a href="https://paystack.shop/pay/oklahhubm365" target="_blank" rel="noopener" className="btn"
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: 'linear-gradient(135deg,#F97316,#FB923C)', color: '#fff', padding: '15px', borderRadius: 12, fontWeight: 800, textDecoration: 'none', fontSize: 15, minHeight: 52, boxShadow: '0 6px 20px rgba(249,115,22,.4)' }}>
-                  <IcCard s={18} /> Pay Now — ₦35,000 per user/year
+                  <IcCard s={18} /> Pay Now — #35000 yearly
                 </a>
                 <a href={waHref('Hi Oklah Hub! I want Microsoft 365.')} target="_blank" rel="noopener" className="btn"
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, background: 'rgba(255,255,255,.08)', border: '1px solid rgba(255,255,255,.18)', color: '#fff', padding: '12px', borderRadius: 12, fontWeight: 700, textDecoration: 'none', fontSize: 14, minHeight: 46 }}>
-                  <WaIco s={15} /> Chat on WhatsApp first
+                  <WaIco s={15} /> Chat on whatsapp
                 </a>
               </div>
               <div style={{ display: 'flex', justifyContent: 'center', gap: 16, marginTop: 14, flexWrap: 'wrap' }}>
