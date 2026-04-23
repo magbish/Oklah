@@ -719,7 +719,7 @@ function WhyUs({ mob }) {
         <div className="rv-l">
           <span style={{ display: 'inline-block', background: 'rgba(13,76,143,.07)', color: 'var(--navy)', padding: '5px 14px', borderRadius: 100, fontSize: 11, fontWeight: 700, letterSpacing: '.07em', textTransform: 'uppercase', marginBottom: 16, border: '1px solid rgba(13,76,143,.1)' }}>Why Oklah Hub</span>
           <h2 style={{ fontSize: mob ? 26 : 'clamp(26px,3vw,42px)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-.03em', lineHeight: 1.1, marginBottom: 18, maxWidth: 380 }}>Why businesses choose us.</h2>
-          <p style={{ color: 'var(--muted)', fontSize: mob ? 15 : 16, lineHeight: 1.78, maxWidth: 380, marginBottom: 28 }}>We're not just a vendor — we're your dedicated tech team. Every service saves you time, makes you look better and grows your business.</p>
+          <p style={{ color: 'var(--muted)', fontSize: mob ? 15 : 16, lineHeight: 1.78, maxWidth: 380, marginBottom: 28 }}>We're your dedicated tech team. Every service saves you time, makes you look better and grows your business.</p>
           <a
             href={waHref('Hi Oklah Hub! I want to learn more.')}
             target="_blank"
@@ -986,12 +986,12 @@ function Contact({ mob }) {
             <div style={{ display: 'flex', gap: 10, marginBottom: 24, flexWrap: 'wrap' }}>
               <a href={waHref('Hi Oklah Hub! I want to get started.')} target="_blank" rel="noopener"
                 aria-label="Contact us on WhatsApp"
-                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,#25D366,#128C7E)', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(37,211,102,.32)' }}>
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,var(--navy),var(--sky))', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(13,76,143,.3)' }}>
                 <WaIco s={16} />
               </a>
               <a href="https://www.instagram.com/oklahhub_ng" target="_blank" rel="noopener"
                 aria-label="Follow us on Instagram"
-                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,#E1306C,#F77737)', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(225,48,108,.32)' }}>
+                style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 42, height: 42, borderRadius: 10, background: 'linear-gradient(135deg,var(--navy),var(--sky))', color: '#fff', textDecoration: 'none', boxShadow: '0 4px 14px rgba(13,76,143,.3)' }}>
                 <IgIco s={16} />
               </a>
               <a href="mailto:info@oklahhub.com"
