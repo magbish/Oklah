@@ -535,7 +535,7 @@ function HowItWorks({ mob }) {
           {steps.map((s, i) => (
             <div key={i} className={`rv d${i + 1}`}
               style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: mob ? 'row' : 'column', alignItems: mob ? 'flex-start' : 'center', textAlign: mob ? 'left' : 'center', gap: mob ? 20 : 0, padding: mob ? '24px 0' : '0 28px', borderBottom: mob && i < 2 ? '1px solid var(--border)' : 'none' }}>
-              <div style={{ width: 68, height: 68, borderRadius: '50%', background: i === 2 ? 'linear-gradient(135deg,#F97316,#FB923C)' : 'linear-gradient(135deg,var(--navy),var(--sky))', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginBottom: mob ? 0 : 24, boxShadow: i === 2 ? '0 8px 24px rgba(249,115,22,.4)' : '0 8px 24px rgba(13,76,143,.32)', color: '#fff' }}><s.Icon s={28} /></div>
+              <div className="step-orb" style={{ width: 68, height: 68, borderRadius: '50%', background: i === 2 ? 'linear-gradient(135deg,#F97316,#FB923C)' : 'linear-gradient(135deg,var(--navy),var(--sky))', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginBottom: mob ? 0 : 24, boxShadow: i === 2 ? '0 8px 24px rgba(249,115,22,.4)' : '0 8px 24px rgba(13,76,143,.32)', color: '#fff', animationDelay: `${i * 180}ms` }}><s.Icon s={28} /></div>
               <div>
                 <div style={{ fontSize: 11, fontWeight: 800, color: i === 2 ? '#F97316' : 'var(--sky)', letterSpacing: '.07em', textTransform: 'uppercase', marginBottom: 8 }}>Step {s.num}</div>
                 <h3 style={{ fontSize: mob ? 18 : 22, fontWeight: s.contact ? 900 : 800, color: 'var(--text)', letterSpacing: '-.02em', marginBottom: 10 }}>{s.title}</h3>
@@ -590,12 +590,12 @@ function Services({ mob }) {
 
         <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : 'repeat(2,1fr)', gap: mob ? 16 : 20 }}>
           {SVCS.map((s, i) => (
-            <div key={i} className={`rv d${(i % 2) + 1} hov ${s.featured ? 'hov-featured' : ''}`}
+            <div key={i} className={`rv d${(i % 2) + 1} hov svc-card ${s.featured ? 'hov-featured' : ''}`}
               style={{ background: 'var(--card)', borderRadius: 22, padding: mob ? 24 : 32, border: s.featured ? undefined : '1px solid var(--border)', boxShadow: s.featured ? undefined : 'var(--sh-sm)', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}
             >
               {s.featured && <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg,var(--navy),var(--sky),var(--orange))' }} />}
               {s.featured && <span style={{ position: 'absolute', top: 18, right: 18, background: 'linear-gradient(135deg,#F97316,#FB923C)', color: '#fff', padding: '4px 10px', borderRadius: 100, fontSize: 10, fontWeight: 800, letterSpacing: '.04em', textTransform: 'uppercase', boxShadow: '0 4px 12px rgba(249,115,22,.35)', display: 'inline-flex', alignItems: 'center', gap: 4 }}><StarIco /> Most Popular</span>}
-              <div style={{ width: 56, height: 56, borderRadius: 14, marginBottom: 14, background: s.featured ? 'linear-gradient(135deg,var(--navy),var(--sky))' : 'linear-gradient(135deg,rgba(13,76,143,.08),rgba(14,165,233,.04))', color: s.featured ? '#fff' : 'var(--navy)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><s.Icon s={26} /></div>
+              <div className="svc-icon" style={{ width: 56, height: 56, borderRadius: 14, marginBottom: 14, background: s.featured ? 'linear-gradient(135deg,var(--navy),var(--sky))' : 'linear-gradient(135deg,rgba(13,76,143,.08),rgba(14,165,233,.04))', color: s.featured ? '#fff' : 'var(--navy)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><s.Icon s={26} /></div>
               <span style={{ display: 'inline-block', background: 'rgba(13,76,143,.07)', color: 'var(--navy)', padding: '4px 11px', borderRadius: 100, fontSize: 11, fontWeight: 700, marginBottom: 14, width: 'fit-content', border: '1px solid rgba(13,76,143,.1)' }}>{s.tag}</span>
               <h3 style={{ fontSize: mob ? 18 : 20, fontWeight: 800, color: 'var(--text)', letterSpacing: '-.02em', marginBottom: 10 }}>{s.title}</h3>
               <p style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.72, marginBottom: 20, flexGrow: 1 }}>{s.desc}</p>
@@ -732,10 +732,10 @@ function WhyUs({ mob }) {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           {pts.map((p, i) => (
-            <div key={i} className={`rv d${Math.min(i + 1, 4)} hov`}
+            <div key={i} className={`rv d${Math.min(i + 1, 4)} hov why-card`}
               style={{ background: 'var(--card)', borderRadius: 16, padding: 20, border: '1px solid var(--border)', boxShadow: 'var(--sh-sm)' }}
             >
-              <div style={{ width: 42, height: 42, borderRadius: 11, marginBottom: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', background: p.c.startsWith('#') ? p.c + '18' : 'rgba(13,76,143,.1)', color: p.c }}><p.Icon s={22} /></div>
+              <div className="why-icon" style={{ width: 42, height: 42, borderRadius: 11, marginBottom: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', background: p.c.startsWith('#') ? p.c + '18' : 'rgba(13,76,143,.1)', color: p.c }}><p.Icon s={22} /></div>
               <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)', marginBottom: 6, letterSpacing: '-.01em' }}>{p.title}</div>
               <div style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.6 }}>{p.desc}</div>
             </div>
@@ -787,16 +787,16 @@ function Testimonials({ mob }) {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : 'repeat(3,1fr)', gap: mob ? 14 : 20 }}>
           {REVIEWS.map((r, i) => (
-            <div key={i} className={`rv d${i + 1} hov hov-orange`}
+            <div key={i} className={`rv d${i + 1} hov hov-orange review-card`}
               style={{ background: 'var(--card)', borderRadius: 20, padding: mob ? 24 : 32, border: '1px solid var(--border)', boxShadow: 'var(--sh-sm)', display: 'flex', flexDirection: 'column', position: 'relative' }}
             >
               <div style={{ position: 'absolute', top: 16, right: 20, fontSize: 52, color: 'rgba(13,76,143,.06)', fontFamily: 'Georgia,serif', lineHeight: 1, fontWeight: 700, userSelect: 'none' }}>"</div>
-              <div style={{ display: 'flex', gap: 2, marginBottom: 16 }}>
+              <div className="review-stars" style={{ display: 'flex', gap: 2, marginBottom: 16, animationDelay: `${i * 220}ms` }}>
                 {Array(r.stars).fill(0).map((_, j) => <StarIco key={j} />)}
               </div>
               <p style={{ color: 'var(--text)', fontSize: mob ? 14 : 15, lineHeight: 1.76, marginBottom: 24, flexGrow: 1, position: 'relative' }}>"{r.body}"</p>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12, borderTop: '1px solid var(--border)', paddingTop: 16 }}>
-                <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'linear-gradient(135deg,var(--navy),var(--sky))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 800, fontSize: 15, flexShrink: 0 }}>{r.name[0]}</div>
+                <div className="review-avatar" style={{ width: 40, height: 40, borderRadius: '50%', background: 'linear-gradient(135deg,var(--navy),var(--sky))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 800, fontSize: 15, flexShrink: 0, animationDelay: `${i * 220}ms` }}>{r.name[0]}</div>
                 <div>
                   <div style={{ fontWeight: 700, color: 'var(--text)', fontSize: 13 }}>{r.name}</div>
                   <div style={{ color: 'var(--muted)', fontSize: 11, marginTop: 2 }}>{r.role}</div>
@@ -881,14 +881,14 @@ function About({ mob }) {
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 12 }}>
               {values.map((v, i) => (
-                <div key={i} className="hov" style={{ background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 16, padding: '18px 16px', boxShadow: 'var(--sh-sm)' }}>
-                  <div style={{ width: 36, height: 36, borderRadius: 10, marginBottom: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg,rgba(13,76,143,.1),rgba(14,165,233,.05))', color: 'var(--navy)' }}><v.Icon s={20} /></div>
+                <div key={i} className="hov about-card" style={{ background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 16, padding: '18px 16px', boxShadow: 'var(--sh-sm)' }}>
+                  <div className="about-icon" style={{ width: 36, height: 36, borderRadius: 10, marginBottom: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'linear-gradient(135deg,rgba(13,76,143,.1),rgba(14,165,233,.05))', color: 'var(--navy)' }}><v.Icon s={20} /></div>
                   <div style={{ fontSize: 14, fontWeight: 800, color: 'var(--text)', marginBottom: 4, letterSpacing: '-.01em' }}>{v.title}</div>
                   <div style={{ fontSize: 12, color: 'var(--muted)', lineHeight: 1.55 }}>{v.desc}</div>
                 </div>
               ))}
             </div>
-            <div style={{ background: 'linear-gradient(135deg,var(--navy),var(--sky))', borderRadius: 16, padding: '22px 20px', position: 'relative', overflow: 'hidden' }}>
+            <div className="quote-card" style={{ background: 'linear-gradient(135deg,var(--navy),var(--sky))', borderRadius: 16, padding: '22px 20px', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: -30, right: -30, width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,255,255,.08)', filter: 'blur(20px)', pointerEvents: 'none' }} />
               <span style={{ display: 'inline-flex', background: '#fff', padding: '8px 12px', borderRadius: 10, boxShadow: '0 2px 10px rgba(0,0,0,.15)', position: 'relative' }}><Logo h={26} /></span>
               <p style={{ fontSize: mob ? 14 : 15, fontStyle: 'italic', color: 'rgba(255,255,255,.9)', lineHeight: 1.65, margin: '12px 0 0', fontWeight: 500, position: 'relative' }}>"More than a product — it's your security."</p>
@@ -981,7 +981,7 @@ function Contact({ mob }) {
               Your competitors already<br />look more professional.<br />
               <span className="shimmer">Fix that today.</span>
             </h2>
-            <p style={{ color: 'rgba(255,255,255,.6)', fontSize: mob ? 15 : 16, marginBottom: 28, maxWidth: 420, lineHeight: 1.7 }}>WhatsApp is fastest — we reply within the hour. Prefer the form? It also sends straight to WhatsApp.</p>
+            <p style={{ color: 'rgba(255,255,255,.6)', fontSize: mob ? 15 : 16, marginBottom: 28, maxWidth: 420, lineHeight: 1.7 }}>Get in touch with our team for a response within sixty minutes. For detailed inquiries, please complete the form below.</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
               <a href="mailto:info@oklahhub.com" className="btn btn-o" style={{ justifyContent: 'center', padding: '12px 24px', fontSize: 14, color: 'rgba(255,255,255,.75)', borderColor: 'rgba(255,255,255,.18)', background: 'rgba(255,255,255,.07)' }}>
                 <MailIco s={15} /> info@oklahhub.com
