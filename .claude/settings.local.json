@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Read(//c/Users/HomePC/Downloads/**)",
-      "Read(//c/Users/HomePC/**)"
-    ]
-  }
-}
