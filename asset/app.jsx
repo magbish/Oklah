@@ -573,7 +573,7 @@ function Services({ mob }) {
         </div>
       </div>
 
-      <div style={{ margin: mob ? '0 -20px' : '0 -32px', marginBottom: mob ? 32 : 48, background: 'linear-gradient(90deg,#C2410C 0%,#F97316 40%,#FB923C 60%,#F97316 80%,#C2410C 100%)', borderTop: '2px solid rgba(255,255,255,.22)', borderBottom: '2px solid rgba(255,255,255,.22)', padding: '14px 0' }}>
+      <div style={{ margin: mob ? '0 -20px' : '0 -32px', marginBottom: mob ? 32 : 48, background: 'linear-gradient(90deg,#071E3D 0%,#0D4C8F 40%,#1565C0 60%,#0D4C8F 80%,#071E3D 100%)', borderTop: '2px solid rgba(255,255,255,.18)', borderBottom: '2px solid rgba(255,255,255,.18)', padding: '14px 0' }}>
         <div className="tk-wrap">
           <div className="tk-track">
             {[...svcTicker, ...svcTicker, ...svcTicker].map((item, i) => (
