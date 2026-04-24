@@ -573,7 +573,7 @@ function Services({ mob }) {
         </div>
       </div>
 
-      <div style={{ margin: mob ? '0 -20px' : '0 -32px', marginBottom: mob ? 32 : 48, background: 'linear-gradient(90deg,#C2410C 0%,#F97316 40%,#FB923C 60%,#F97316 80%,#C2410C 100%)', borderTop: '2px solid rgba(255,255,255,.22)', borderBottom: '2px solid rgba(255,255,255,.22)', padding: '14px 0' }}>
+      <div style={{ margin: mob ? '0 -20px' : '0 -32px', marginBottom: mob ? 32 : 48, background: 'linear-gradient(90deg,#071E3D 0%,#0D4C8F 40%,#1565C0 60%,#0D4C8F 80%,#071E3D 100%)', borderTop: '2px solid rgba(255,255,255,.18)', borderBottom: '2px solid rgba(255,255,255,.18)', padding: '14px 0' }}>
         <div className="tk-wrap">
           <div className="tk-track">
             {[...svcTicker, ...svcTicker, ...svcTicker].map((item, i) => (
@@ -771,8 +771,8 @@ function StatsBand({ mob }) {
 
 /* ── TESTIMONIALS ── */
 const REVIEWS = [
-  { name: 'Temi Bukola', role: 'Data Analyst', body: 'I was embarrassed to share my Gmail with big clients. Within 48 hours, Oklah Hub gave me a proper branded email. The difference was immediate.', stars: 5 },
-  { name: 'Chinedu Ugo', role: 'Co-Founder, Martinez & Co.', body: '₦35,000 a year for Microsoft 365 with Copilot AI? One of the best business decisions I\'ve made. The AI alone saves me hours every week.', stars: 5 },
+  { name: 'Temi Bukola', role: 'Data Analyst', body: '₦35,000 a year for Microsoft 365 with Copilot AI? One of the best business decisions I\'ve made. The AI alone saves me hours every week.', stars: 5 },
+  { name: 'Chinedu Ugo', role: 'Co-Founder, Martinez & Co.', body: 'I was embarrassed to share my Gmail with big clients. Within 48 hours, Oklah Hub gave me a proper branded email. The difference was immediate.', stars: 5 },
   { name: 'Amara Williams', role: 'Director, Bright Futures Academy', body: 'Our old website was embarrassing us. Oklah Hub redesigned it and now handles everything. We\'ve enrolled more students since the relaunch.', stars: 5 },
 ];
 
