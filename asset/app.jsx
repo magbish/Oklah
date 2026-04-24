@@ -581,7 +581,7 @@ const SVCS = [
 
 function Services({ mob }) {
   const svcTicker = [
-    { price: '₦35000/yr', text: 'A website that works while you sleep. We design, build, and fully manage your business website, ecommerce or full web app. You focus on customers, we handle the tech.' },
+    { price: '₦35000/yr', text: 'A website that works while you sleep. We design, build, and fully manage your business website, ecommerce or full web app.  You focus on customers, we handle the tech.' },
     { price: '₦35000/yr', text: 'Premium versions of Office Apps including Word, Excel, PowerPoint, Outlook to unlock your creativity and achieve more. Now enhanced with Microsoft Copilot, your AI assistant, and 1 TB of secure cloud storage.' },
   ];
   return (
