@@ -201,27 +201,6 @@ const Toggle = ({ dark, set }) => (
   </button>
 );
 
-/* ── WA BUTTON ── */
-function WaBtn({ msg = 'Hi Oklah Hub! I want to get started.', label, full, lg, ghost }) {
-  const base = {
-    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 9,
-    padding: lg ? '16px 28px' : '13px 22px',
-    borderRadius: 12, fontWeight: 800, fontSize: lg ? 16 : 14,
-    textDecoration: 'none', width: full ? '100%' : 'auto', minHeight: lg ? 54 : 48,
-    transition: 'transform .15s,box-shadow .2s'
-  };
-  if (ghost) return (
-    <a href={waHref(msg)} target="_blank" rel="noopener" className="btn btn-o" style={{ ...base, gap: 8 }}>
-      <WaIco s={14} />{label || 'Chat on WhatsApp'}
-    </a>
-  );
-  return (
-    <a href={waHref(msg)} target="_blank" rel="noopener" className="btn btn-g" style={base}>
-      <WaIco s={14} />{label || 'Chat on WhatsApp'}
-    </a>
-  );
-}
-
 /* ── NAV ── */
 function Nav({ mob, dark, setDark, scrolled }) {
   const [menu, setMenu] = useState(false);
