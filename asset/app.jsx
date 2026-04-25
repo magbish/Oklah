@@ -436,7 +436,7 @@ function TrustBar() {
     { Icon: IcLock, label: 'Enterprise Security' },
     { Icon: IcUsers, label: 'Personal Support' },
     { Icon: IcGlobe, label: 'Worldwide Service' },
-    { Icon: IcCard, label: 'From ₦35000/year' },
+    { Icon: IcCard, label: 'From ₦35,000/year' },
     { Icon: IcPhone, label: 'Mobile First' },
     { Icon: IcCheck, label: 'No Contract' },
   ];
@@ -551,7 +551,7 @@ function HowItWorks({ mob }) {
 
 /* ── SERVICES ── */
 const SVCS = [
-  { Icon: MicrosoftIco, tag: '₦35000/user/year', title: 'Microsoft 365', desc: 'Premium versions of Office Apps including Word, Excel, PowerPoint, Outlook to unlock your creativity and achieve more. Now enhanced with Microsoft Copilot, your AI assistant, and 1 TB of secure OneDrive cloud storage.', features: ['Word, Excel, PowerPoint, Outlook & OneNote', 'Microsoft Copilot AI built-in', '1 TB secure OneDrive cloud storage', 'Works on phone, tablet & PC'], msg: 'Hi Oklah Hub! I want Microsoft 365 for my business.', emailSubject: 'Microsoft 365 Inquiry', featured: true },
+  { Icon: MicrosoftIco, tag: '₦35,000/user/year', title: 'Microsoft 365', desc: 'Premium versions of Office Apps including Word, Excel, PowerPoint, Outlook to unlock your creativity and achieve more. Now enhanced with Microsoft Copilot, your AI assistant, and 1 TB of secure OneDrive cloud storage.', features: ['Word, Excel, PowerPoint, Outlook & OneNote', 'Microsoft Copilot AI built-in', '1 TB secure OneDrive cloud storage', 'Works on phone, tablet & PC'], msg: 'Hi Oklah Hub! I want Microsoft 365 for my business.', emailSubject: 'Microsoft 365 Inquiry', featured: true },
   { Icon: MailIco, tag: 'Custom pricing', title: 'Professional Business Email', desc: "Stop losing deals because you're emailing from Gmail or Yahoo. A branded email like you@yourbusiness.com builds instant trust.", features: ['you@yourbusiness.com address', 'Full setup done for you', 'Spam protection & security', 'Fully managed. Worry free'], msg: 'Hi Oklah Hub! I want a professional business email.', emailSubject: 'Business Email Inquiry' },
   { Icon: IcGlobe, tag: 'from ₦250,000', title: 'Website Design & Management', desc: 'A website that works while you sleep. We design, build, and fully manage your business website, ecommerce store, or full web app. You focus on customers, we handle the tech.', features: ['Static business website from ₦250,000', 'Ecommerce store, custom pricing', 'Web application, contact us for pricing', 'We manage all updates & upkeep', 'Fast, secure & always on'], msg: 'Hi Oklah Hub! I want a professional website.', emailSubject: 'Website Design Inquiry' },
   { Icon: IcPalette, tag: 'Custom pricing', title: 'Graphics & Logo Design', desc: 'A strong brand starts with great visuals. We create custom logos, brand identities and social media graphics that make your business stand out.', features: ['Custom logo design', 'Full brand identity kit', 'Social media graphics & assets', 'Consistent style across platforms'], msg: 'Hi Oklah Hub! I want graphics and logo design.', emailSubject: 'Graphics & Logo Design Inquiry' },
@@ -627,7 +627,7 @@ function Pricing({ mob }) {
               </div>
               <h3 style={{ fontSize: 22, fontWeight: 800, color: '#fff', marginBottom: 8, letterSpacing: '-.02em' }}>Microsoft 365</h3>
               <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
-                <span style={{ fontSize: mob ? 40 : 52, fontWeight: 900, color: '#fff', letterSpacing: '-.04em', lineHeight: 1 }}>₦35000</span>
+                <span style={{ fontSize: mob ? 40 : 52, fontWeight: 900, color: '#fff', letterSpacing: '-.04em', lineHeight: 1 }}>₦35,000</span>
                 <span style={{ color: 'rgba(255,255,255,.72)', fontSize: 14 }}>/year</span>
               </div>
               <p style={{ color: 'rgba(255,255,255,.72)', fontSize: 12, marginBottom: 28 }}>Billed annually</p>
@@ -884,7 +884,7 @@ function About({ mob }) {
 const FAQS = [
   { q: 'How quickly can I get started?', a: 'Very fast. Send us a WhatsApp message, tell us what you need, and we can have most services set up within 24 to 48 hours. No long forms, no waiting weeks.' },
   { q: "I'm not tech-savvy. Will this be complicated?", a: "Not at all. That's exactly why we exist. You don't touch any technical settings. We handle everything from A to Z. You just use the finished product." },
-  { q: 'Is the Microsoft 365 ₦35000 price per person?', a: "Yes, it's per user per year. For team pricing, message us on WhatsApp and we'll work out the best deal for you." },
+  { q: 'Is the Microsoft 365 ₦35,000 price per person?', a: "Yes, it's per user per year. For team pricing, message us on WhatsApp and we'll work out the best deal for you." },
   { q: 'Do I need to sign a long-term contract?', a: 'No contracts, no lock-ins. We earn your business every month. You can cancel anytime. No questions asked.' },
   { q: 'How do I pay?', a: 'Pay directly online via our secure payment link for Microsoft 365, or via bank transfer. Message us on WhatsApp to get started with any service.' },
 ];
@@ -926,26 +926,40 @@ function FAQ({ mob }) {
 
 /* ── CONTACT ── */
 function Contact({ mob }) {
-  const [form, setForm] = useState({ name: '', email: '', business: '', service: 'Microsoft 365', message: '' });
-  const [sent, setSent] = useState(false);
-  const [sending, setSending] = useState(false);
+  const [form, setForm] = useState({ name: '', email: '', business: '', service: 'Microsoft 365', message: '', _website: '' });
+  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'sent' | 'error'
+  const sending = status === 'sending';
+  const sent = status === 'sent';
+  const errored = status === 'error';
   const up = (k, v) => setForm(f => ({ ...f, [k]: v }));
-  const submit = e => {
+  const submit = async e => {
     e.preventDefault();
     if (sending) return;
-    setSending(true);
-    const parts = [
-      'Hi Oklah Hub!', '',
-      `Name: ${form.name}`,
-      `Business: ${form.business}`,
-      `Email: ${form.email}`,
-      `Service: ${form.service}`,
-      '', form.message
-    ];
-    const text = encodeURIComponent(parts.join('\n'));
-    window.open(`https://wa.me/${WA}?text=${text}`, '_blank', 'noopener');
-    setTimeout(() => { setSending(false); setSent(true); }, 250);
-    setTimeout(() => setSent(false), 6000);
+    if (form._website) return; // honeypot tripped — silently drop
+    setStatus('sending');
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/5d7e531a94915f4a35dea3b456998e9d', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          business: form.business || '(not provided)',
+          service: form.service,
+          message: form.message || '(no message)',
+          _subject: `New inquiry from ${form.name} — ${form.service}`,
+          _replyto: form.email,
+          _template: 'table',
+          _captcha: 'false'
+        })
+      });
+      if (!res.ok) throw new Error('submit-failed');
+      setStatus('sent');
+      setForm({ name: '', email: '', business: '', service: 'Microsoft 365', message: '', _website: '' });
+      setTimeout(() => setStatus('idle'), 8000);
+    } catch (err) {
+      setStatus('error');
+    }
   };
   return (
     <section id="contact" className="cv-auto" style={{ background: 'var(--bg)', padding: mob ? '64px 20px' : '96px 32px', borderTop: '1px solid var(--border)' }}>
@@ -1002,13 +1016,16 @@ function Contact({ mob }) {
             {sent && (
               <div role="status" style={{ textAlign: 'center', padding: '32px 16px', background: 'rgba(37,211,102,.06)', borderRadius: 16, border: '1px solid rgba(37,211,102,.25)' }}>
                 <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(37,211,102,.15)', color: '#16A34A', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }} aria-hidden="true"><IcCheckCircle s={32} /></div>
-                <div style={{ fontSize: 16, fontWeight: 800, color: 'var(--text)', marginBottom: 6 }}>Message ready on WhatsApp</div>
-                <div style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.6 }}>We opened WhatsApp with your details. Just hit send.</div>
+                <div style={{ fontSize: 16, fontWeight: 800, color: 'var(--text)', marginBottom: 6 }}>Message sent!</div>
+                <div style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.6 }}>Thanks — your message is on its way to <strong>info@oklahhub.com</strong>. We'll reply within the hour.</div>
               </div>
             )}
           </div>
           {!sent && (
             <form onSubmit={submit} noValidate={false} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {/* Honeypot — bots fill this; real users don't see it */}
+              <input type="text" name="_website" tabIndex="-1" autoComplete="off" value={form._website} onChange={e => up('_website', e.target.value)} aria-hidden="true"
+                style={{ position: 'absolute', left: '-10000px', top: 'auto', width: 1, height: 1, overflow: 'hidden' }} />
               <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', gap: 12 }}>
                 <input className="oh-input" required placeholder="Your name" aria-label="Your name" autoComplete="name" value={form.name} onChange={e => up('name', e.target.value)} />
                 <input className="oh-input" required type="email" placeholder="Email address" aria-label="Email address" autoComplete="email" inputMode="email" value={form.email} onChange={e => up('email', e.target.value)} />
@@ -1025,11 +1042,16 @@ function Contact({ mob }) {
                 <option>I'm not sure, help me choose</option>
               </select>
               <textarea className="oh-input" rows="4" placeholder="What do you need? (optional)" aria-label="Message" value={form.message} onChange={e => up('message', e.target.value)} />
+              {errored && (
+                <div role="alert" style={{ fontSize: 13, color: '#B91C1C', background: 'rgba(220,38,38,.06)', border: '1px solid rgba(220,38,38,.25)', borderRadius: 10, padding: '10px 12px', lineHeight: 1.5 }}>
+                  Couldn't send your message right now. Please try again, or email us directly at <a href="mailto:info@oklahhub.com" style={{ color: 'inherit', fontWeight: 700 }}>info@oklahhub.com</a>.
+                </div>
+              )}
               <button type="submit" className="btn btn-p" disabled={sending} aria-busy={sending}
                 style={{ padding: '15px', fontSize: 15, minHeight: 52, borderRadius: 12, width: '100%', opacity: sending ? .7 : 1, cursor: sending ? 'wait' : 'pointer' }}>
-                {sending ? <><span className="ld-ring" style={{ width: 16, height: 16, borderWidth: 2 }} aria-hidden="true"/> Opening WhatsApp…</> : <>Send</>}
+                {sending ? <><span className="ld-ring" style={{ width: 16, height: 16, borderWidth: 2 }} aria-hidden="true"/> Sending…</> : <>Send Message</>}
               </button>
-              <p style={{ color: 'var(--muted)', fontSize: 11, textAlign: 'center', marginTop: 2 }}>We'll never spam you. Your details stay private.</p>
+              <p style={{ color: 'var(--muted)', fontSize: 11, textAlign: 'center', marginTop: 2 }}>Goes straight to info@oklahhub.com. We never share your details.</p>
             </form>
           )}
         </div>
