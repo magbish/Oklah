@@ -559,10 +559,6 @@ const SVCS = [
 
 
 function Services({ mob }) {
-  const svcTicker = [
-    { price: '₦35000/yr', text: 'A website that works while you sleep. We design, build, and fully manage your business website, ecommerce or full web app.  You focus on customers, we handle the tech.' },
-    { price: '₦35000/yr', text: 'Premium versions of Office Apps including Word, Excel, PowerPoint, Outlook to unlock your creativity and achieve more. Now enhanced with Microsoft Copilot, your AI assistant, and 1 TB of secure cloud storage.' },
-  ];
   return (
     <section id="services" className="cv-auto" style={{ background: 'var(--bg)', padding: mob ? '64px 20px' : '112px 32px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
@@ -571,23 +567,7 @@ function Services({ mob }) {
           <h2 style={{ fontSize: mob ? 26 : 'clamp(28px,3.5vw,44px)', fontWeight: 800, color: 'var(--text)', letterSpacing: '-.03em', lineHeight: 1.1, marginBottom: 14, maxWidth: 560, margin: '0 auto 14px' }}>Everything your business needs to look professional.</h2>
           <p style={{ color: 'var(--muted)', fontSize: mob ? 15 : 17, maxWidth: 500, margin: '0 auto' }}>Everything you need. One trusted partner. No tech knowledge required.</p>
         </div>
-      </div>
 
-      <div style={{ margin: mob ? '0 -20px' : '0 -32px', marginBottom: mob ? 32 : 48, background: 'linear-gradient(90deg,#071E3D 0%,#0D4C8F 40%,#1565C0 60%,#0D4C8F 80%,#071E3D 100%)', borderTop: '2px solid rgba(255,255,255,.18)', borderBottom: '2px solid rgba(255,255,255,.18)', padding: '14px 0' }}>
-        <div className="tk-wrap">
-          <div className="tk-track">
-            {[...svcTicker, ...svcTicker, ...svcTicker].map((item, i) => (
-              <span key={i} className="tk-item">
-                <span className="tk-price">{item.price}</span>
-                <span>{item.text}</span>
-                <span className="tk-dot" aria-hidden="true" />
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : 'repeat(2,1fr)', gap: mob ? 16 : 20 }}>
           {SVCS.map((s, i) => (
             <div key={i} className={`rv d${(i % 2) + 1} hov svc-card ${s.featured ? 'hov-featured' : ''}`}
